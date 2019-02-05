@@ -12,7 +12,7 @@ class ProjectsController extends Controller
       // $projects = Project::all();
       $projects = \App\Project::all();
 
-      return $projects;
-      return view('projects.index');
+      // return $projects;
+      return view('projects.index', compact('projects'));
     }
 }

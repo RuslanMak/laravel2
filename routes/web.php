@@ -15,6 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/projects', 'ProjectsController@index');
-Route::post('/projects', 'ProjectsController@store');
-Route::get('/projects/create', 'ProjectsController@create');
+/*
+  GET /projects (index)
+  GET /projects/create (create)
+  GET /projects/1 (show)
+  POST /projects (store)
+  GET /projects/1/edit (edit)
+  PATCH /projects/1 (update)
+  DELETE /projects/1 (destroy)
+*/
+
+// Route::get('/projects', 'ProjectsController@index');
+// Route::get('/projects/{project}', 'ProjectsController@show');
+// Route::get('/projects/create', 'ProjectsController@create');
+// Route::post('/projects', 'ProjectsController@store');
+// Route::get('/projects/{project}/edit', 'ProjectsController@edit');
+// Route::patch('/projects/{project}', 'ProjectsController@update');
+// Route::delete('/projects/{project}', 'ProjectsController@destroy');
+// OR JUSR
+Route::resource('projects', 'ProjectsController'); //это тоже самое что и сверху но в 1 строке)))

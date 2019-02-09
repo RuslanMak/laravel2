@@ -8,8 +8,8 @@
     <h1>Create a New Projects</h1>
 
     <form class="" action="/projects" method="post">
-      {{-- {{ csrf_field() }} --}}
-      @csrf
+      {{ csrf_field() }}
+      {{-- @csrf --}}
       <div class="">
         <input type="text" name="title" value="" placeholder="Project title">
       </div>

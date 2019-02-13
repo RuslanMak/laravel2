@@ -30,7 +30,7 @@ class ProjectsController extends Controller
     {
       // return $id;
 
-      $project = Project::find($id);
+      $project = Project::findOrFail($id);
 
       return view('projects.edit', compact('project'));
     }
@@ -40,7 +40,7 @@ class ProjectsController extends Controller
       // dd('hello!');
       // dd(request()->all());
 
-      $project = Project::find($id);
+      $project = Project::findOrFail($id);
 
       $project->title = request('title');
       $project->description = request('description');
@@ -50,9 +50,12 @@ class ProjectsController extends Controller
       return redirect('/projects');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+      // dd(request()->all());
+      Project::findOrFail($id)->delete();
 
+      return redirect('/projects');
     }
 
     public function store()

@@ -21,54 +21,45 @@ class ProjectsController extends Controller
       return view('projects.create');
     }
 
-    public function show()
+    public function show(Project $project)
     {
-
+      // $project = Project::findOrFail($id);
+      return view('projects.show', compact('project'));
     }
 
-    public function edit($id)
+    // public function edit($id)
+    public function edit(Project $project)
     {
-      // return $id;
-
-      $project = Project::findOrFail($id);
-
+      // $project = Project::findOrFail($id);
       return view('projects.edit', compact('project'));
     }
 
-    public function update($id)
+    public function update(Project $project)
     {
-      // dd('hello!');
-      // dd(request()->all());
-
-      $project = Project::findOrFail($id);
-
       $project->title = request('title');
       $project->description = request('description');
-
       $project->save();
 
       return redirect('/projects');
     }
 
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-      // dd(request()->all());
-      Project::findOrFail($id)->delete();
+      $project->delete();
 
       return redirect('/projects');
     }
 
     public function store()
     {
-      // return request()->all();
-      // return request('description');
-
-      $project = new Project();
-
-      $project->title = request('title');
-      $project->description = request('description');
-
-      $project->save();
+      Project::create([            // при этом способе надо настраивать в Project.php
+        'title' => request('title'),
+        'description' => request('description')
+      ]);
+      // $project = new Project();
+      // $project->title = request('title');
+      // $project->description = request('description');
+      // $project->save();
       return redirect('/projects');
     }
 }

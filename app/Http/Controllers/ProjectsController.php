@@ -36,9 +36,7 @@ class ProjectsController extends Controller
 
     public function update(Project $project)
     {
-      $project->title = request('title');
-      $project->description = request('description');
-      $project->save();
+      $project->update(request(['title', 'description']));
 
       return redirect('/projects');
     }
@@ -52,14 +50,10 @@ class ProjectsController extends Controller
 
     public function store()
     {
-      Project::create([            // при этом способе надо настраивать в Project.php
-        'title' => request('title'),
-        'description' => request('description')
-      ]);
-      // $project = new Project();
-      // $project->title = request('title');
-      // $project->description = request('description');
-      // $project->save();
+      // dd(request()->all());
+      // dd(request('title'));
+      // dd(request(['title', 'description']));
+      Project::create(request(['title', 'description']));            // при этом способе надо настраивать в Project.php
       return redirect('/projects');
     }
 }

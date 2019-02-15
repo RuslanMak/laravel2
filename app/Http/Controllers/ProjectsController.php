@@ -50,9 +50,11 @@ class ProjectsController extends Controller
 
     public function store()
     {
-      // dd(request()->all());
-      // dd(request('title'));
-      // dd(request(['title', 'description']));
+      request()->validate([
+        'title' => 'required',
+        'description' => 'required'
+      ]);
+
       Project::create(request(['title', 'description']));            // при этом способе надо настраивать в Project.php
       return redirect('/projects');
     }

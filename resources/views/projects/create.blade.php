@@ -1,27 +1,42 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Create a New Projects</h1>
+@extends('layout')
 
-    <form class="" action="/projects" method="post">
-      {{ csrf_field() }}
-      {{-- @csrf --}}
-      <div class="">
-        <input type="text" name="title" value="" placeholder="Project title">
+@section('content')
+  <h1 class="title">Create a New Projects</h1>
+
+  <form class="" action="/projects" method="post">
+    {{ csrf_field() }}
+
+    <div class="field">
+      <label class="label" for="title">Project Title</label>
+
+      <div class="control">
+        <input type="text" class="input" name="title" required>
       </div>
+    </div>
 
-      <div class="">
-        <textarea name="description" rows="8" cols="80" placeholder="Project description"></textarea>
+    <div class="field">
+      <label class="label" for="description">Project Description</label>
+
+      <div class="control">
+        <textarea name="description" class="textarea"></textarea>
       </div>
+    </div>
 
-      <div class="">
-        <button type="submit">Create Project</button>
+    <div class="field">
+      <div class="control">
+        <button class="button is-link" type="submit">Create Project</button>
       </div>
+    </div>
 
-    </form>
-  </body>
-</html>
+    @if ($errors->any())
+      <div class="notification is-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
+  </form>
+@endsection

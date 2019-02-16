@@ -11,4 +11,9 @@ class Project extends Model
     // ];
 
     protected $guarded = []; // create со всеми полями (можно задать любые данные)
+
+    public function tasks()
+    {
+      return $this->hasMany(Task::class);
+    }
 }

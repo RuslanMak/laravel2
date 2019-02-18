@@ -34,3 +34,5 @@ Route::get('/', function () {
 // Route::delete('/projects/{project}', 'ProjectsController@destroy');
 // OR JUSR
 Route::resource('projects', 'ProjectsController'); //это тоже самое что и сверху но в 1 строке)))
+
+Route::patch('/tasks/{task}', 'ProjectTasksController@update');

@@ -36,7 +36,7 @@
     <div class="field">
       <label class="label" for="description">New Task</label>
       <div class="control">
-        <input class="input" type="text" name="description" placeholder="Text input">
+        <input class="input" type="text" name="description" placeholder="New Task" required> {{-- required для  --}}
       </div>
     </div>
 
@@ -45,6 +45,8 @@
         <button type="submit" class="button is-link">Add Task</button>
       </div>
     </div>
+
+    @include('errors')
   </form>
 
 @endsection

@@ -23,27 +23,27 @@ class ProjectTasksController extends Controller
       return back();
     }
 
-    public function update(Task $task)
-    {
-      // $task->complete(request()->has('completed'));
-      // or
-      // if(request()->has('completed')) {
-      //   $task->complete();
-      // } else {
-      //   $task->incomplete();
-      // }
-      // or
-      // request()->has('completed') ? $task->complete() : $task->incomplete();
-      // or
-      $method = request()->has('completed') ? 'complete' : 'incomplete';
-      $task->$method();
-
-      // dd($task);
-      // dd(request()->all());
-      // $task->update([
-      //   'completed' => request()->has('completed')
-      // ]);
-
-      return back();
-    }
+    // public function update(Task $task)
+    // {
+    //   // $task->complete(request()->has('completed'));
+    //   // or
+    //   // if(request()->has('completed')) {
+    //   //   $task->complete();
+    //   // } else {
+    //   //   $task->incomplete();
+    //   // }
+    //   // or
+    //   // request()->has('completed') ? $task->complete() : $task->incomplete();
+    //   // or
+    //   $method = request()->has('completed') ? 'complete' : 'incomplete';
+    //   $task->$method();
+    //
+    //   // dd($task);
+    //   // dd(request()->all());
+    //   // $task->update([
+    //   //   'completed' => request()->has('completed')
+    //   // ]);
+    //
+    //   return back();
+    // }
 }

@@ -11,7 +11,16 @@
 |
 */
 
+// use Illuminate\Filesystem\Filesystem;
+app()->singleton('App\Services\Twitter', function() {
+  // dd('called');
+  return new \App\Services\Twitter('djshf;dsl;sfdkjflkd');
+});
+
+
 Route::get('/', function () {
+  dd(app('App\Example'));
+
     return view('welcome');
 });
 

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Filesystem\Filesystems
 use App\Project;
+use App\Services\Twitter;
 
 class ProjectsController extends Controller
 {
@@ -21,8 +22,10 @@ class ProjectsController extends Controller
       return view('projects.create');
     }
 
-    public function show(Project $project)
+    public function show(Project $project, Twitter $twitter)
     {
+      dd($twitter);
+
       // $project = Project::findOrFail($id);
       return view('projects.show', compact('project'));
     }

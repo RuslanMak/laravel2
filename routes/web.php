@@ -12,14 +12,15 @@
 */
 
 // use Illuminate\Filesystem\Filesystem;
-app()->singleton('App\Services\Twitter', function() {
-  // dd('called');
-  return new \App\Services\Twitter('djshf;dsl;sfdkjflkd');
-});
+// app()->singleton('App\Services\Twitter', function() {
+//   // dd('called');
+//   return new \App\Services\Twitter('djshf;dsl;sfdkjflkd');
+// });
 
+use App\Repositories\UserRepository;
 
-Route::get('/', function () {
-  dd(app('App\Example'));
+Route::get('/', function (UserRepository $users) {
+  dd($users);
 
     return view('welcome');
 });

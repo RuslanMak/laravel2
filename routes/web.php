@@ -17,10 +17,11 @@
 //   return new \App\Services\Twitter('djshf;dsl;sfdkjflkd');
 // });
 
-use App\Repositories\UserRepository;
+// use App\Repositories\UserRepository;
+use App\Services\Twitter;
 
-Route::get('/', function (UserRepository $users) {
-  dd($users);
+Route::get('/', function (Twitter $twitter) {
+  dd($twitter);
 
     return view('welcome');
 });
